@@ -1,4 +1,5 @@
 import { FaCube } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const Benefits = () => {
   return (
@@ -19,7 +20,12 @@ const Benefits = () => {
             your everyday life.
           </p>
           <div>
-            <button className="px-8 py-2 border border-black">Join</button>
+            <Link
+              to={"/sign-up"}
+              className="px-8 py-2 border border-white bg-black text-white"
+            >
+              Join
+            </Link>
           </div>
         </div>
 

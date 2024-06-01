@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <section className=" bg-[url('/src/assets/heromobile.webp')] bg-center bg-cover bg-blend-overlay text-white bg-black/30 ">
+    <section className=" bg-[url('/src/assets/heromobile.webp')] lg:bg-[url('/src/assets/hero1.webp')] bg-center bg-cover bg-blend-overlay text-white bg-black/30 ">
       <div className="container flex flex-col h-screen justify-center items-center gap-2">
         <div className="text-center space-y-4 lg:w-1/2 md:w-2/3">
           <h1 className="lg:text-5xl text-3xl md:text-4xl font-bold">
