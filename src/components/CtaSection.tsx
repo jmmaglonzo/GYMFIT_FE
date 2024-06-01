@@ -1,11 +1,11 @@
 const CtaSection = () => {
   return (
-    <section className="container bg-[url('/src/assets/CTA.jpg')] bg-center bg-cover bg-blend-overlay text-white bg-black/25 p-8">
-      <div className="flex flex-col gap-4 w-1/2 ">
-        <span className="font-bold text-3xl">
+    <section className="container bg-[url('/src/assets/CTA.webp')] bg-center bg-cover bg-blend-overlay text-white bg-black/25 p-8">
+      <div className="flex flex-col gap-4 lg:w-1/2 ">
+        <span className="font-bold text-2xl md:text-3xl">
           Join our fintess community today!
         </span>
-        <p>
+        <p className="md:text-base text-sm">
           Experience the best workouts and achieve your fitness goals with our
           state-of-the-art facilities and expert trainers.
         </p>

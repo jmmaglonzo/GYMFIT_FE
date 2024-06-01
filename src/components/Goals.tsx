@@ -1,14 +1,14 @@
 import { FaCube } from "react-icons/fa6";
-import goals from "../assets/hero9.jpg";
+import goals from "../assets/hero9.webp";
 
 const Goals = () => {
   return (
-    <section className="flex gap-20 py-20 container">
-      <div className="flex flex-col gap-4 w-[80%] justify-center">
-        <h3 className="font-bold text-4xl">
+    <section className="flex lg:flex-row flex-col gap-20 py-20 p-4 container">
+      <div className="flex flex-col gap-4 lg:text-start text-center lg:w-[80%] justify-center">
+        <h3 className="font-bold text-xl md:text-4xl">
           Stay motivated with personalized fitness plans and goal-setting tools.
         </h3>
-        <p>
+        <p className="md:text-base text-sm">
           At Gym Fit, we believe that fitness is not just about physical health,
           but also about mental well-being and community support. By joining Gym
           Fit, you'll have access to state-of-the-art facilities, expert
@@ -18,7 +18,7 @@ const Goals = () => {
           life.
         </p>
 
-        <ul className="flex flex-col gap-4">
+        <ul className="flex flex-col gap-4 text-sm md:text-base lg:items-start items-center">
           <li className="flex gap-4 items-center">
             <FaCube />
             <p>Improve your strength and build lean muscle mass</p>
@@ -34,7 +34,7 @@ const Goals = () => {
         </ul>
       </div>
 
-      <div className="w-[1200px] h-[500px]">
+      <div className="lg:w-[1200px] lg:h-[500px]">
         <img
           src={goals}
           alt=""

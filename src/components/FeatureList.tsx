@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 
 const FeatureList = () => {
   return (
-    <section className="py-20 container">
+    <section className="py-20 container px-4">
       <div className="flex flex-col text-center ">
-        <h3 className="text-4xl font-bold">
+        <h3 className="md:text-4xl text-xl font-bold">
           Discover the Benefits of Our Gym Fit Membership
         </h3>
 
-        <div className="flex gap-4 mt-20">
+        <div className="flex md:flex-row flex-col gap-4 mt-12 lg:mt-20">
           <div className="flex flex-col items-center space-y-4">
             <FaCube size={40} />
             <span className="font-bold">

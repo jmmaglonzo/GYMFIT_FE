@@ -2,14 +2,14 @@ import { FaCube } from "react-icons/fa6";
 
 const Benefits = () => {
   return (
-    <section className="container py-20">
-      <div className="flex gap-8">
+    <section className="container py-20 px-4">
+      <div className="flex lg:flex-row flex-col gap-8">
         <div className="flex flex-col gap-4 w-[95%] ">
-          <span>Get Fit</span>
-          <h3 className="text-4xl font-bold">
+          <span className="font-bold">Get Fit</span>
+          <h3 className="md:text-4xl text-xl font-bold">
             Why Choose Gym Fit for Your Fitness Journey
           </h3>
-          <p className="">
+          <p className="md:text-base text-sm">
             At Gym Fit, we believe that fitness is not just about physical
             health, but also about mental well-being and community support. By
             joining Gym Fit, you'll have access to state-of-the-art facilities,

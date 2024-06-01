@@ -2,17 +2,17 @@ import { FaStar } from "react-icons/fa6";
 
 const Testimonials = () => {
   return (
-    <section className="container py-20">
+    <section className="container py-20 px-4">
       <div className="flex flex-col  space-y-4">
-        <h3 className="font-bold text-3xl text-center">
+        <h3 className="font-bold text-2xl md:text-3xl text-center">
           Customer testimonials
         </h3>
-        <p className="text-center">
+        <p className="text-center md:text-base text-sm">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
           cupiditate nobis earum illum ipsam iure!
         </p>
 
-        <div className="flex gap-4 items-center">
+        <div className="flex lg:flex-row flex-col gap-4 items-center">
           <div className="border border-black rounded-sm p-4 space-y-4">
             <div className="flex items-center">
               <FaStar />
@@ -21,7 +21,7 @@ const Testimonials = () => {
               <FaStar />
             </div>
 
-            <p>
+            <p className="md:text-base text-sm">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae,
               suscipit, molestiae quos, cupiditate veritatis excepturi id iusto
               minus illum officiis atque. Consequatur quod assumenda corporis
@@ -46,7 +46,7 @@ const Testimonials = () => {
               <FaStar />
             </div>
 
-            <p>
+            <p className="md:text-base text-sm">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae,
               suscipit, molestiae quos, cupiditate veritatis excepturi id iusto
               minus illum officiis atque. Consequatur quod assumenda corporis
@@ -71,7 +71,7 @@ const Testimonials = () => {
               <FaStar />
             </div>
 
-            <p>
+            <p className="md:text-base text-sm">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae,
               suscipit, molestiae quos, cupiditate veritatis excepturi id iusto
               minus illum officiis atque. Consequatur quod assumenda corporis
