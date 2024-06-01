@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const CtaSection = () => {
   return (
-    <section className="container bg-[url('/src/assets/CTA.webp')] bg-center bg-cover bg-blend-overlay text-white bg-black/25 p-8">
+    <section className="container md:py-20 my-12 md:my-20 bg-[url('/src/assets/CTA.webp')] bg-center bg-cover bg-blend-overlay text-white bg-black/25 p-8">
       <div className="flex flex-col gap-4 lg:w-1/2 ">
         <span className="font-bold text-2xl md:text-3xl">
           Join our fitness community today!

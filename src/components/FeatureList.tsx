@@ -2,7 +2,7 @@ import { FaCube } from "react-icons/fa6";
 
 const FeatureList = () => {
   return (
-    <section className="py-20 container px-4">
+    <section className="my-12 md:my-20 md:py-20 container px-4">
       <div className="flex flex-col text-center ">
         <h3 className="md:text-4xl text-xl font-bold">
           Discover the Benefits of Our Gym Fit Membership

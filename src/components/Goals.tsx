@@ -3,7 +3,7 @@ import goals from "../assets/hero9.webp";
 
 const Goals = () => {
   return (
-    <section className="flex lg:flex-row flex-col gap-20 py-20 p-4 container">
+    <section className="flex lg:flex-row flex-col md:my-20 gap-20 my-12 md:py-20 p-4 container">
       <div className="flex flex-col gap-4 lg:text-start text-center lg:w-[80%] justify-center">
         <h3 className="font-bold text-xl md:text-4xl">
           Stay motivated with personalized fitness plans and goal-setting tools.

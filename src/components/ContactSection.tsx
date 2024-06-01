@@ -4,7 +4,7 @@ import { MdOutlineEmail } from "react-icons/md";
 
 const ContactSection = () => {
   return (
-    <section className="container py-20">
+    <section className="container md:py-20 my-12 md:my-20">
       <div className="flex lg:flex-row flex-col gap-4 items-center text-center lg:text-start justify-center">
         <div className="flex flex-col gap-4 items-center">
           <MdOutlineEmail size={40} />

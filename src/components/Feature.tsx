@@ -2,7 +2,7 @@ import feature from "../assets/hero2.webp";
 
 const Feature = () => {
   return (
-    <section className="flex gap-20 lg:flex-row flex-col py-20 container p-4">
+    <section className="flex gap-20 lg:flex-row md:my-20 flex-col md:py-20 py-12 container p-4">
       <div className="lg:w-[1200px] lg:h-[500px] order-2 lg:order-1">
         <img
           src={feature}

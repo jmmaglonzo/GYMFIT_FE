@@ -8,26 +8,18 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="container">
-      <nav className="flex justify-between">
-        <span className="font-bold">GymFIT</span>
+    <footer className="container px-8">
+      <nav className="flex  flex-col items-center gap-8 justify-center py-12 ">
+        <span className="font-bold text-xl">GYMFIT</span>
 
-        <ul className="flex gap-4 items-center">
-          <li className="font-bold">Fitness Tips</li>
-          <li className="font-bold">Fitness Tips</li>
-          <li className="font-bold">Fitness Tips</li>
-          <li className="font-bold">Fitness Tips</li>
-          <li className="font-bold">Fitness Tips</li>
-          <li className="font-bold">Fitness Tips</li>
-        </ul>
-
-        <div className="flex gap-4 items-center">
+        <div className="flex gap-4 items-center cursor-pointer">
           <FaFacebook />
           <FaInstagram />
           <BsTwitterX />
           <FaLinkedin />
           <FaYoutube />
         </div>
+        <p>© 2024 Gym Fit. All rights reserved.</p>
       </nav>
     </footer>
   );

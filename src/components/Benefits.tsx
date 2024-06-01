@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Benefits = () => {
   return (
-    <section className="container py-20 px-4">
+    <section className="container my-12 md:my-20 md:py-20 px-4">
       <div className="flex lg:flex-row flex-col gap-8">
         <div className="flex flex-col gap-4 w-[95%] ">
           <span className="font-bold">Get Fit</span>

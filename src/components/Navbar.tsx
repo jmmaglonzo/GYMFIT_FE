@@ -10,7 +10,9 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 right-0 bg-custom-white w-full py-2  ">
       {isSmallDevice ? (
         <nav className="flex justify-between px-4 container relative">
-          <span className="font-bold">GymBuddy</span>
+          <NavLink to="/" className="font-bold">
+            GymBuddy
+          </NavLink>
           <BiMenuAltRight
             size={20}
             className={`${toggle ? "rotate-0" : "rotate-180"} duration-300`}
@@ -42,23 +44,46 @@ const Navbar = () => {
         </nav>
       ) : (
         <nav className=" items-center gap-4 container flex ">
-          <span className="flex-1">GymBuddy</span>
-          <ul className="flex gap-4">
-            <NavLink to="/workout-plans">Workout Plans</NavLink>
-            <NavLink to="/exercise-library">Exercise Library</NavLink>
-            <NavLink to="/about-us">About Us</NavLink>
+          <NavLink to="/" className="font-bold flex-1 text-3xl">
+            GYMFIT
+          </NavLink>
+          <ul className="flex gap-4 text-sm">
+            <NavLink
+              to="/workout-plans"
+              className={({ isActive }) =>
+                `${isActive && "border-b-2 border-black font-bold"}`
+              }
+            >
+              Workout Plans
+            </NavLink>
+            <NavLink
+              to="/exercise-library"
+              className={({ isActive }) =>
+                `${isActive && "border-b-2 border-black font-bold"}`
+              }
+            >
+              Exercise Library
+            </NavLink>
+            <NavLink
+              to="/about-us"
+              className={({ isActive }) =>
+                `${isActive && "border-b-2 border-black font-bold"}`
+              }
+            >
+              About us
+            </NavLink>
           </ul>
 
           <div className="flex items-center gap-2">
             <NavLink
-              to="sign-up"
-              className="px-8 py-2 rounded-sm bg-white border-2 border-black"
+              to="/sign-up"
+              className="px-8 text-xs py-2 rounded-sm bg-white border border-black"
             >
               Sign Up
             </NavLink>
             <NavLink
-              to="login"
-              className="px-8 py-2 rounded-sm bg-black text-white border-2 border-white"
+              to="/login"
+              className="px-8 text-xs py-2 rounded-sm bg-black text-white border border-white"
             >
               Login
             </NavLink>

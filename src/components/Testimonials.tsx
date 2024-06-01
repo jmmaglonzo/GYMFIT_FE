@@ -3,7 +3,7 @@ import { users } from "../utils/testimonials";
 
 const Testimonials = () => {
   return (
-    <section className="container py-20 px-4">
+    <section className="container my-12 md:mt-20 md:py-20 px-4">
       <div className="flex flex-col  space-y-4">
         <h3 className="font-bold text-2xl md:text-3xl text-center">
           Customer testimonials

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Hero = () => {
   return (
     <section className=" bg-[url('/src/assets/heromobile.webp')] lg:bg-[url('/src/assets/hero1.webp')] bg-center bg-cover bg-blend-overlay text-white bg-black/30 ">
@@ -13,12 +15,18 @@ const Hero = () => {
           </p>
         </div>
         <div className="flex gap-4 mt-6">
-          <button className="px-6 py-2 bg-black text-white rounded-sm text-sm">
+          <Link
+            to="/sign-up"
+            className="px-6 py-2 bg-black text-white rounded-sm text-sm"
+          >
             Sign Up
-          </button>
-          <button className="px-6 py-2 bg-white text-black rounded-sm text-sm">
+          </Link>
+          <Link
+            to="/about-us"
+            className="px-6 py-2 bg-white text-black rounded-sm text-sm"
+          >
             Learn More
-          </button>
+          </Link>
         </div>
       </div>
     </section>
