@@ -5,7 +5,7 @@ const rootLayout = () => {
   return (
     <>
       <Navbar />
-      <main className="mt-20 container">
+      <main className="">
         <Outlet />
       </main>
     </>
