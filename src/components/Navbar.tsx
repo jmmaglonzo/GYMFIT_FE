@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const isSmallDevice = useMediaQuery("only screen and (max-width : 767px)");
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(false);
   return (
     <header className="fixed top-0 left-0 right-0 bg-custom-white w-full py-2  ">
       {isSmallDevice ? (
@@ -15,27 +15,31 @@ const Navbar = () => {
           </NavLink>
           <BiMenuAltRight
             size={20}
-            className={`${toggle ? "rotate-0" : "rotate-180"} duration-300`}
+            className={`${toggle ? "rotate-180" : "rotate-0"} duration-300`}
             onClick={() => setToggle((t) => !t)}
           />
 
-          <div className=" bg-white flex-col gap-4 absolute p-4 hidden">
-            <ul className="flex flex-col gap-4">
+          <div
+            className={`bg-white flex-col gap-4 absolute duration-300 left-0 top-8  p-4 w-full ${
+              toggle ? "visible opacity-100" : "invisible opacity-0"
+            } `}
+          >
+            <ul className="flex flex-col items-center gap-8">
               <NavLink to="/workout-plans">Workout Plans</NavLink>
               <NavLink to="/exercise-library">Exercise Library</NavLink>
               <NavLink to="/about-us">About Us</NavLink>
             </ul>
 
-            <div className="flex items-center flex-col gap-2 ">
+            <div className="flex items-center mt-12 flex-col gap-2 ">
               <NavLink
                 to="sign-up"
-                className="px-8 py-2 rounded-sm bg-white border-2 border-black"
+                className="px-8 py-2 rounded-sm text-sm w-full text-center bg-white border-2 border-black"
               >
                 Sign Up
               </NavLink>
               <NavLink
                 to="login"
-                className="px-8 py-2 rounded-sm bg-black text-white border-2 border-white"
+                className="px-8 py-2 rounded-sm text-sm w-full text-center bg-black text-white border-2 border-white"
               >
                 Login
               </NavLink>
