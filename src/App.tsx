@@ -1,11 +1,12 @@
+import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
-import RootLayout from "./pages/rootLayout";
-import Homepage from "./pages/Homepage";
-import About from "./pages/About";
-import Workout from "./pages/Workout";
-import Library from "./pages/Library";
-import Signup from "./pages/Signup";
-import Login from "./pages/Login";
+const RootLayout = lazy(() => import("./pages/_root/rootLayout"));
+const Homepage = lazy(() => import("./pages/Homepage"));
+const About = lazy(() => import("./pages/About"));
+const Workout = lazy(() => import("./pages/Workout"));
+const Library = lazy(() => import("./pages/Library"));
+const Signup = lazy(() => import("./pages/Signup"));
+const Login = lazy(() => import("./pages/Login"));
 const App = () => {
   return (
     <Routes>
