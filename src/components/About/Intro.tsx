@@ -1,6 +1,6 @@
 const Intro = () => {
   return (
-    <div className="lg:bg-[url('/src/assets/about.webp')] bg-[url('/src/assets/heromobile.webp')] bg-center bg-cover bg-blend-overlay text-white bg-black/60 ">
+    <div className="lg:bg-[url('/src/assets/about.webp')] bg-[url('/src/assets/aboutmobile.webp')] bg-center bg-cover bg-blend-overlay text-white bg-black/40 ">
       <div className="container flex flex-col h-screen justify-center items-center gap-2">
         <div className="text-center space-y-4  md:w-2/3">
           <h1 className="lg:text-6xl text-3xl md:text-4xl font-bold">

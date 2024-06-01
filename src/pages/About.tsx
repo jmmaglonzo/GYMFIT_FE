@@ -1,10 +1,10 @@
-import Intro from "../components/About/Intro";
+import Header from "../components/About/Intro";
 import Story from "../components/About/Story";
 
 const About = () => {
   return (
     <>
-      <Intro />
+      <Header />
       <Story />
     </>
   );

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Story from "./About/Story";
 
 const Hero = () => {
   return (
@@ -30,7 +29,6 @@ const Hero = () => {
           </Link>
         </div>
       </div>
-      <Story />
     </section>
   );
 };
