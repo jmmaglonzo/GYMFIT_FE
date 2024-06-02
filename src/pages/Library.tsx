@@ -4,6 +4,7 @@ import Card from "../components/Exercise/Card";
 import Loader from "../components/Loader/Loader";
 import Pagination from "../components/Exercise/Pagination";
 import { BiSearch } from "react-icons/bi";
+import Modal from "../components/Exercise/Modal";
 
 export interface ExerciseType {
   bodyPart: string;
@@ -22,6 +23,7 @@ const Library = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [postPerPage] = useState<number>(10);
   const [search, setSearch] = useState("");
+  const [selectedData, setSelectedData] = useState<ExerciseType | null>(null);
   useEffect(() => {
     getExercise();
   }, []);
@@ -51,6 +53,14 @@ const Library = () => {
   const lastPostIndex = currentPage * postPerPage;
   const firstPostIndex = lastPostIndex - postPerPage;
   const currentPosts = exercise.slice(firstPostIndex, lastPostIndex);
+
+  const handleCardClick = (data: ExerciseType) => {
+    setSelectedData(data);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedData(null);
+  };
 
   return (
     <section className="md:py-20 flex flex-col my-12 container p-4">
@@ -83,10 +93,12 @@ const Library = () => {
                       item.bodyPart.toLowerCase().includes(search);
               })
               .map((e) => (
-                <Card key={e.id} exercise={e} />
+                <Card key={e.id} exercise={e} onClick={handleCardClick} />
               ))}
           </>
         )}
+
+        <Modal data={selectedData} onClose={handleCloseModal} />
       </div>
       <Pagination
         totalPosts={exercise.length}
