@@ -39,14 +39,17 @@ const Workout = () => {
   }, []);
 
   const getWorkout = async () => {
-    const res = await axios.get(url);
-    setWorkouts(res.data);
+    try {
+      const res = await axios.get(url);
+      setWorkouts(res.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const createWorkout = async (e: FormEvent) => {
     e.preventDefault();
 
-    // Form validation
     let formValid = true;
     const newErrors = {
       title: "",
@@ -91,11 +94,15 @@ const Workout = () => {
   };
 
   const deleteWorkout = async (id: string) => {
-    await axios.delete(`https://workout-crud.vercel.app/api/workouts/${id}`);
+    try {
+      await axios.delete(`https://workout-crud.vercel.app/api/workouts/${id}`);
 
-    const newWorkout = [...workouts].filter((w) => w._id !== id);
+      const newWorkout = [...workouts].filter((w) => w._id !== id);
 
-    setWorkouts(newWorkout);
+      setWorkouts(newWorkout);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (

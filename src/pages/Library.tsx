@@ -25,18 +25,26 @@ const Library = () => {
   }, []);
 
   const getExercise = async () => {
-    setIsLoading(true);
-    const res = await axios.get("https://exercisedb.p.rapidapi.com/exercises", {
-      url: "https://exercisedb.p.rapidapi.com/exercises",
-      params: { limit: "100" },
-      headers: {
-        "X-RapidAPI-Key": "41d5aec5e0mshf5632abd58571cbp1b37e7jsn36c8acffc7e4",
-        "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
-      },
-    });
+    try {
+      setIsLoading(true);
+      const res = await axios.get(
+        "https://exercisedb.p.rapidapi.com/exercises",
+        {
+          url: "https://exercisedb.p.rapidapi.com/exercises",
+          params: { limit: "100" },
+          headers: {
+            "X-RapidAPI-Key":
+              "41d5aec5e0mshf5632abd58571cbp1b37e7jsn36c8acffc7e4",
+            "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
+          },
+        }
+      );
 
-    setExercise(res.data);
-    setIsLoading(false);
+      setExercise(res.data);
+      setIsLoading(false);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const lastPostIndex = currentPage * postPerPage;
