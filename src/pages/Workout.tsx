@@ -106,8 +106,8 @@ const Workout = () => {
   };
 
   return (
-    <section className="md:py-20 my-12 container grid grid-cols-3 gap-12">
-      <div className="col-span-2 overflow-auto h-96 flex flex-col gap-4 p-4">
+    <section className="md:py-20 my-12 container p-4 flex lg:flex-row flex-col justify-between gap-12">
+      <div className="overflow-y-auto h-64 lg:flex-1 lg:h-96 flex flex-col gap-4 p-4">
         {workouts.length === 0 ? (
           <span className="font-bold">Enter Data to start</span>
         ) : (
@@ -129,16 +129,18 @@ const Workout = () => {
           </>
         )}
       </div>
-      <div className="col-span-1">
+      <div className="lg:w-[400px]">
         <form
           onSubmit={createWorkout}
-          className="flex flex-col flex-1  p-4 rounded-lg shadow-2xl"
+          className="flex flex-col w-full flex-1  p-4 rounded-lg shadow-2xl"
         >
-          <h3 className="font-bold text-2xl">Add a new Workout</h3>
+          <h3 className="font-bold text-center mb-6 text-xl md:text-2xl">
+            Add a new Workout
+          </h3>
 
           <label htmlFor="title">Exercise Title:</label>
           <input
-            className="bg-white text-white px-4 py-2"
+            className="bg-white text-black px-4 py-2"
             id="title"
             type="text"
             name="title"
@@ -150,7 +152,7 @@ const Workout = () => {
           <label htmlFor="load">Load in (in kg):</label>
           <input
             id="load"
-            className="bg-white text-white px-4 py-2"
+            className="bg-white text-black px-4 py-2"
             type="number"
             name="load"
             value={form.load}
@@ -161,7 +163,7 @@ const Workout = () => {
           <label htmlFor="reps">Reps:</label>
           <input
             id="reps"
-            className="bg-white text-white px-4 py-2"
+            className="bg-white text-black px-4 py-2"
             type="number"
             name="reps"
             value={form.reps}
