@@ -8,7 +8,7 @@ interface WorkoutProps {
 
 const WorkoutDetails = ({ data, deleteWorkout }: WorkoutProps) => {
   return (
-    <div className="bg-white flex  justify-between p-4 rounded-md  ">
+    <div className="bg-white flex  justify-between p-4 rounded-md shadow-md ">
       <div className="flex flex-col gap-2">
         <span className="font-bold text-2xl text-[#ef5350]">{data.title}</span>
         <span className="font-bold text-xl">Load (KG): {data.load} </span>

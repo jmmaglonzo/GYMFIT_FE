@@ -125,13 +125,13 @@ const Workout = () => {
       <div className="col-span-1">
         <form
           onSubmit={createWorkout}
-          className="flex flex-col bg-white flex-1 border border-black p-4 rounded-lg shadow-lg"
+          className="flex flex-col flex-1  p-4 rounded-lg shadow-2xl"
         >
           <h3 className="font-bold text-2xl">Add a new Workout</h3>
 
           <label htmlFor="title">Exercise Title:</label>
           <input
-            className="bg-slate-700 text-white px-4 py-2"
+            className="bg-white text-white px-4 py-2"
             id="title"
             type="text"
             name="title"
@@ -143,7 +143,7 @@ const Workout = () => {
           <label htmlFor="load">Load in (in kg):</label>
           <input
             id="load"
-            className="bg-slate-700 text-white px-4 py-2"
+            className="bg-white text-white px-4 py-2"
             type="number"
             name="load"
             value={form.load}
@@ -154,7 +154,7 @@ const Workout = () => {
           <label htmlFor="reps">Reps:</label>
           <input
             id="reps"
-            className="bg-slate-700 text-white px-4 py-2"
+            className="bg-white text-white px-4 py-2"
             type="number"
             name="reps"
             value={form.reps}
@@ -162,7 +162,7 @@ const Workout = () => {
           />
           {errors.reps && <span className="text-red-500">{errors.reps}</span>}
 
-          <button type="submit" className="mt-8 px-6 py-2 bg-black text-white ">
+          <button type="submit" className="mt-8 px-6 py-2 bg-black text-white">
             Add Workout
           </button>
         </form>
