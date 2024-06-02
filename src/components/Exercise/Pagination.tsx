@@ -21,7 +21,7 @@ const Pagination = ({
       {pages.map((page, index) => {
         return (
           <button
-            className={`font-bold  px-4 py-1 ${
+            className={`font-bold px-2 rounded-sm ${
               page === currentPage && "bg-black text-white"
             } `}
             key={index}

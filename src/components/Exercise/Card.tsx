@@ -6,8 +6,9 @@ interface CardProps {
 
 const Card = ({ exercise }: CardProps) => {
   return (
-    <div>
-      <img src={exercise.gifUrl} alt="" />
+    <div className="flex flex-col gap-2 text-center">
+      <img src={exercise.gifUrl} alt={exercise.name} />
+      <span className="font-bold capitalize text-sm">{exercise.name}</span>
     </div>
   );
 };

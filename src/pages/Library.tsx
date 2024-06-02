@@ -3,6 +3,7 @@ import axios from "axios";
 import Card from "../components/Exercise/Card";
 import Loader from "../components/Loader/Loader";
 import Pagination from "../components/Exercise/Pagination";
+import { BiSearch } from "react-icons/bi";
 
 export interface ExerciseType {
   bodyPart: string;
@@ -20,6 +21,7 @@ const Library = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [postPerPage] = useState<number>(10);
+  const [search, setSearch] = useState("");
   useEffect(() => {
     getExercise();
   }, []);
@@ -33,9 +35,8 @@ const Library = () => {
           url: "https://exercisedb.p.rapidapi.com/exercises",
           params: { limit: "100" },
           headers: {
-            "X-RapidAPI-Key":
-              "41d5aec5e0mshf5632abd58571cbp1b37e7jsn36c8acffc7e4",
-            "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
+            "X-RapidAPI-Key": import.meta.env.VITE_RAPID_API_KEY,
+            "X-RapidAPI-Host": import.meta.env.VITE_HOST,
           },
         }
       );
@@ -52,20 +53,38 @@ const Library = () => {
   const currentPosts = exercise.slice(firstPostIndex, lastPostIndex);
 
   return (
-    <section className="md:py-20 flex flex-col my-12 container">
+    <section className="md:py-20 flex flex-col my-12 container p-4">
       <div className="flex justify-center">
-        <span className="font-bold text-4xl">
-          Workouts & Routines: Elevate Your Fitness
-        </span>
+        <div className="flex flex-col text-center gap-4">
+          <span className="font-bold md:text-2xl lg:text-4xl">
+            Workouts & Routines: Elevate Your Fitness
+          </span>
+          <div className="flex items-center bg-white px-4 py-2 rounded-md">
+            <input
+              type="text"
+              className="w-full outline-none"
+              placeholder="Search Exercise...."
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <BiSearch size={20} />
+          </div>
+        </div>
       </div>
       <div className="grid lg:grid-cols-5 md:grid-cols-3 gap-4 grid-cols-2 mt-12">
         {isLoading ? (
           <Loader />
         ) : (
           <>
-            {currentPosts.map((e) => (
-              <Card key={e.id} exercise={e} />
-            ))}
+            {currentPosts
+              .filter((item) => {
+                return search.toLowerCase() === ""
+                  ? item
+                  : item.name.toLowerCase().includes(search) ||
+                      item.bodyPart.toLowerCase().includes(search);
+              })
+              .map((e) => (
+                <Card key={e.id} exercise={e} />
+              ))}
           </>
         )}
       </div>
