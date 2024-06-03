@@ -1,11 +1,13 @@
 import { useMediaQuery } from "@uidotdev/usehooks";
 import { useState } from "react";
-import { BiMenuAltRight } from "react-icons/bi";
+import { BiMenuAltRight, BiUser } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const Navbar = () => {
   const { logout } = useLogout();
+  const { user } = useAuthContext();
 
   const isSmallDevice = useMediaQuery("only screen and (max-width : 767px)");
   const [toggle, setToggle] = useState(false);
@@ -37,26 +39,36 @@ const Navbar = () => {
             </ul>
 
             <div className="flex items-center mt-12 flex-col gap-2 ">
-              <NavLink
-                to="sign-up"
-                className="px-8 py-2 rounded-sm text-sm w-full text-center bg-white border-2 border-black"
-              >
-                Sign Up
-              </NavLink>
-              <NavLink
-                to="login"
-                className="px-8 py-2 rounded-sm text-sm w-full text-center bg-black text-white border-2 border-white"
-              >
-                Login
-              </NavLink>
-              <div>
-                <button
-                  className="px-8 py-2 rounded-sm text-sm w-full text-center bg-black text-white border-2 border-white"
-                  onClick={handleClick}
-                >
-                  Logout
-                </button>
-              </div>
+              {user && (
+                <div className="flex md:flex-row flex-col gap-2 items-center">
+                  <span className="text-sm flex items-center gap-2">
+                    <BiUser />
+                    {user?.email}
+                  </span>
+                  <button
+                    className="px-8 text-xs py-2 rounded-sm bg-black text-white border border-white"
+                    onClick={handleClick}
+                  >
+                    Logout
+                  </button>
+                </div>
+              )}
+              {!user && (
+                <>
+                  <NavLink
+                    to="/sign-up"
+                    className="px-8 text-xs py-2 rounded-sm bg-white border border-black"
+                  >
+                    Sign Up
+                  </NavLink>
+                  <NavLink
+                    to="/login"
+                    className="px-8 text-xs py-2 rounded-sm bg-black text-white border border-white"
+                  >
+                    Login
+                  </NavLink>
+                </>
+              )}
             </div>
           </div>
         </nav>
@@ -93,26 +105,36 @@ const Navbar = () => {
           </ul>
 
           <div className="flex items-center gap-2">
-            <NavLink
-              to="/sign-up"
-              className="px-8 text-xs py-2 rounded-sm bg-white border border-black"
-            >
-              Sign Up
-            </NavLink>
-            <NavLink
-              to="/login"
-              className="px-8 text-xs py-2 rounded-sm bg-black text-white border border-white"
-            >
-              Login
-            </NavLink>
-            <div>
-              <button
-                className="px-8 text-xs py-2 rounded-sm bg-black text-white border border-white"
-                onClick={handleClick}
-              >
-                Logout
-              </button>
-            </div>
+            {user && (
+              <div className="flex gap-2 items-center">
+                <span className="text-sm flex items-center gap-2">
+                  <BiUser />
+                  {user?.email}
+                </span>
+                <button
+                  className="px-8 text-xs py-2 rounded-sm bg-black text-white border border-white"
+                  onClick={handleClick}
+                >
+                  Logout
+                </button>
+              </div>
+            )}
+            {!user && (
+              <>
+                <NavLink
+                  to="/sign-up"
+                  className="px-8 text-xs py-2 rounded-sm bg-white border border-black"
+                >
+                  Sign Up
+                </NavLink>
+                <NavLink
+                  to="/login"
+                  className="px-8 text-xs py-2 rounded-sm bg-black text-white border border-white"
+                >
+                  Login
+                </NavLink>
+              </>
+            )}
           </div>
         </nav>
       )}
