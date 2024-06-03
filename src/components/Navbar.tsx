@@ -32,7 +32,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-custom-white w-full py-2">
+    <header className="fixed top-0 left-0 right-0 bg-custom-white w-full z-50 py-2">
       {isSmallDevice ? (
         // MOBILE NAV
         <nav
