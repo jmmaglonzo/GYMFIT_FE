@@ -43,7 +43,7 @@ const Signup = () => {
         >
           Sign Up
         </button>
-        <span className="text-xs">
+        <span className="text-[10px] text-center">
           The password must include uppercase letters, lowercase letters, and
           special characters.
         </span>

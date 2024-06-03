@@ -8,18 +8,18 @@ interface SignupResponse {
   error?: string;
 }
 
-export const useSignup = () => {
+export const useLogin = () => {
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { dispatch } = useAuthContext();
 
-  const signup = async (email: string, password: string): Promise<void> => {
+  const login = async (email: string, password: string): Promise<void> => {
     setIsLoading(true);
     setError(null);
 
     try {
       const res = await fetch(
-        "https://workout-crud.vercel.app/api/user/signup",
+        "https://workout-crud.vercel.app/api/user/login",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -37,7 +37,7 @@ export const useSignup = () => {
 
       dispatch({ type: "LOGIN", payload: data });
 
-      toast.success("Successfully Registered");
+      toast.success("Login Success");
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);
@@ -51,5 +51,5 @@ export const useSignup = () => {
     }
   };
 
-  return { signup, isLoading, error };
+  return { login, isLoading, error };
 };

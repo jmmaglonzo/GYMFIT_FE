@@ -2,10 +2,16 @@ import { useMediaQuery } from "@uidotdev/usehooks";
 import { useState } from "react";
 import { BiMenuAltRight } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
+import { useLogout } from "../hooks/useLogout";
 
 const Navbar = () => {
+  const { logout } = useLogout();
+
   const isSmallDevice = useMediaQuery("only screen and (max-width : 767px)");
   const [toggle, setToggle] = useState(false);
+  const handleClick = () => {
+    logout();
+  };
   return (
     <header className="fixed top-0 left-0 right-0 bg-custom-white w-full py-2  ">
       {isSmallDevice ? (
@@ -43,6 +49,14 @@ const Navbar = () => {
               >
                 Login
               </NavLink>
+              <div>
+                <button
+                  className="px-8 py-2 rounded-sm text-sm w-full text-center bg-black text-white border-2 border-white"
+                  onClick={handleClick}
+                >
+                  Logout
+                </button>
+              </div>
             </div>
           </div>
         </nav>
@@ -91,6 +105,14 @@ const Navbar = () => {
             >
               Login
             </NavLink>
+            <div>
+              <button
+                className="px-8 text-xs py-2 rounded-sm bg-black text-white border border-white"
+                onClick={handleClick}
+              >
+                Logout
+              </button>
+            </div>
           </div>
         </nav>
       )}

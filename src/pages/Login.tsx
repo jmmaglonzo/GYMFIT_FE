@@ -1,13 +1,15 @@
 import { FormEvent, useState } from "react";
-
+import { useLogin } from "../hooks/useLogin";
+import { Toaster } from "sonner";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { login, isLoading } = useLogin();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    console.log(email, password);
+    await login(email, password);
   };
 
   return (
@@ -34,9 +36,17 @@ const Signup = () => {
           className="w-full py-2 px-4 bg-[#dfe0e2]"
           placeholder="Enter password"
         />
-        <button className="px-8 text-white bg-black py-1 rounded-md ">
+        <Toaster richColors position="top-right" />
+        <button
+          disabled={isLoading}
+          className="px-8 text-white bg-black py-1 rounded-md "
+        >
           Login
         </button>
+        <span className="text-[10px] text-center">
+          The password must include uppercase letters, lowercase letters, and
+          special characters.
+        </span>
       </form>
     </section>
   );
