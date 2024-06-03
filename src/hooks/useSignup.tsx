@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useAuthContext } from "./useAuthContext";
 import { toast } from "sonner";
 
 interface SignupResponse {
@@ -11,9 +10,12 @@ interface SignupResponse {
 export const useSignup = () => {
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const { dispatch } = useAuthContext();
 
-  const signup = async (email: string, password: string): Promise<void> => {
+  const signup = async (
+    email: string,
+    password: string,
+    navigate: (path: string) => void
+  ): Promise<void> => {
     setIsLoading(true);
     setError(null);
 
@@ -33,11 +35,11 @@ export const useSignup = () => {
         throw new Error(data.error || "Signup failed");
       }
 
-      localStorage.setItem("user", JSON.stringify(data));
+      toast.success("Successfully Registered! Please log in.");
 
-      dispatch({ type: "LOGIN", payload: data });
-
-      toast.success("Successfully Registered");
+      setTimeout(() => {
+        navigate("/login");
+      }, 2000);
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);

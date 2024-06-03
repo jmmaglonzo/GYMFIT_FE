@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const Hero = () => {
+  const { user } = useAuthContext();
   return (
     <section className=" bg-[url('/src/assets/heromobile.webp')] lg:bg-[url('/src/assets/hero1.webp')] bg-center bg-cover bg-blend-overlay text-white bg-black/30 ">
       <div className="container flex flex-col h-screen justify-center items-center gap-2">
@@ -17,7 +19,9 @@ const Hero = () => {
         <div className="flex gap-4 mt-6">
           <Link
             to="/sign-up"
-            className="px-6 py-2 bg-black text-white rounded-sm text-sm"
+            className={`px-6 py-2 bg-black text-white rounded-sm text-sm ${
+              user ? "hidden" : "block"
+            }`}
           >
             Sign Up
           </Link>

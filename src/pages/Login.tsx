@@ -1,9 +1,12 @@
 import { FormEvent, useState } from "react";
 import { useLogin } from "../hooks/useLogin";
 import { Toaster } from "sonner";
+import { BsEyeSlash, BsEye } from "react-icons/bs";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [toggle, setToggle] = useState(false);
+
   const { login, isLoading } = useLogin();
 
   const handleSubmit = async (e: FormEvent) => {
@@ -28,14 +31,18 @@ const Signup = () => {
           placeholder="Enter email"
         />
 
-        <label htmlFor="email">Password:</label>
-        <input
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-          className="w-full py-2 px-4 bg-[#dfe0e2]"
-          placeholder="Enter password"
-        />
+        <div className="flex items-center gap-2  py-2 px-4 bg-[#dfe0e2] ">
+          <input
+            type={toggle ? "text" : "password"}
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            className="w-full bg-transparent outline-none"
+            placeholder="Enter password"
+          />
+          <div onClick={() => setToggle((c) => !c)}>
+            {toggle ? <BsEyeSlash /> : <BsEye />}
+          </div>
+        </div>
         <Toaster richColors position="top-right" />
         <button
           disabled={isLoading}

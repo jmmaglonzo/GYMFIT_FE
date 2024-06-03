@@ -1,7 +1,9 @@
 import { FaCube } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const Benefits = () => {
+  const { user } = useAuthContext();
   return (
     <section className="container my-12 md:my-20 md:py-20 px-4">
       <div className="flex lg:flex-row flex-col gap-8">
@@ -20,12 +22,21 @@ const Benefits = () => {
             your everyday life.
           </p>
           <div>
-            <Link
-              to={"/sign-up"}
-              className="px-8 py-2 border border-white bg-black text-white"
-            >
-              Join
-            </Link>
+            {user ? (
+              <Link
+                to={"/about-us"}
+                className="px-8 py-2 border border-white bg-black text-white"
+              >
+                About
+              </Link>
+            ) : (
+              <Link
+                to={"/sign-up"}
+                className="px-8 py-2 border border-white bg-black text-white"
+              >
+                Join
+              </Link>
+            )}
           </div>
         </div>
 
