@@ -1,8 +1,28 @@
 {
-  "rewrites": [
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "/",
+      "dest": "/"
+    },
+    {
+      "src": "/login",
+      "dest": "/"
+    },
+    {
+      "src": "/sign-up",
+      "dest": "/"
+    },
+    {
+      "src": "/workout-plans",
+      "dest": "/"
+    },
+    {
+      "src": "/exercise-library",
+      "dest": "/"
+    },
+    {
+      "src": "/about-us",
+      "dest": "/"
     }
   ]
 }
