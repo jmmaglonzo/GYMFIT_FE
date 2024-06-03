@@ -2,7 +2,7 @@ import { FormEvent, useState } from "react";
 import { useSignup } from "../hooks/useSignup";
 import { Toaster } from "sonner";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -19,12 +19,18 @@ const Signup = () => {
   };
 
   return (
-    <section className="md:my-20 md:py-20 my-12 container">
+    <section className="md:my-20 md:py-20 my-12 container px-4">
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col p-4 w-[400px] mx-auto bg-white gap-4 shadow-xl"
+        className="flex flex-col p-4 md:w-[400px] mx-auto bg-white gap-4 shadow-xl"
       >
         <h3 className="font-bold md:text-3xl text-sm mb-4">Sign Up</h3>
+        <div className="flex gap-2 items-center text-center text-xs">
+          <span className="text-slate-500">Already have an account?</span>
+          <Link className="hover:underline text-[#38cb6e] " to={"/login"}>
+            Login
+          </Link>
+        </div>
         <label htmlFor="email">Email:</label>
         <input
           type="email"
@@ -35,7 +41,7 @@ const Signup = () => {
         />
 
         <label htmlFor="password">Password:</label>
-        <div className="flex items-center gap-2 py-2 px-4 bg-[#dfe0e2]">
+        <div className="flex items-center gap-2 py-2 px-4 bg-[#dfe0e2] cursor-pointer">
           <input
             type={toggle ? "text" : "password"}
             onChange={(e) => setPassword(e.target.value)}
@@ -54,8 +60,8 @@ const Signup = () => {
         >
           Sign Up
         </button>
-        <span className="text-[10px] text-center">
-          The password must include uppercase letters, lowercase letters, and
+        <span className="text-[9px] text-center">
+          The password must include uppercase letters, lowercase, number, and
           special characters.
         </span>
       </form>

@@ -5,7 +5,7 @@ import React, {
   Dispatch,
   useEffect,
 } from "react";
-import { AuthState, AuthAction } from "../types/auth";
+import { AuthState, AuthAction, User } from "../types/auth";
 import { authReducer } from "../types/authReducer";
 
 const initialState: AuthState = {
@@ -31,12 +31,13 @@ export const AuthContextProvider: React.FC<AuthContextProviderProps> = ({
   const [state, dispatch] = useReducer(authReducer, initialState);
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
-
-    if (user) {
+    const userJson = localStorage.getItem("user");
+    if (userJson) {
+      const user: User = JSON.parse(userJson);
       dispatch({ type: "LOGIN", payload: user });
     }
   }, []);
+
   return (
     <AuthContext.Provider value={{ ...state, dispatch }}>
       {children}

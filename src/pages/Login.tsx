@@ -2,6 +2,7 @@ import { FormEvent, useState } from "react";
 import { useLogin } from "../hooks/useLogin";
 import { Toaster } from "sonner";
 import { BsEyeSlash, BsEye } from "react-icons/bs";
+import { Link } from "react-router-dom";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,12 +17,18 @@ const Signup = () => {
   };
 
   return (
-    <section className="md:my-20 md:py-20 my-12 container">
+    <section className="md:my-20 md:py-20 my-12 container px-4">
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col p-4 w-[400px] mx-auto  bg-white gap-4 shadow-xl"
+        className="flex flex-col p-4 md:w-[400px] mx-auto  bg-white gap-4 shadow-xl"
       >
-        <h3 className="font-bold md:text-3xl text-sm mb-4">Login</h3>
+        <h3 className="font-bold md:text-3xl text-sm ">Login</h3>
+        <div className="flex gap-2 items-center text-center text-xs">
+          <span className="text-slate-500">Don't have an account?</span>
+          <Link className="hover:underline text-[#38cb6e] " to={"/sign-up"}>
+            Sign up
+          </Link>
+        </div>
         <label htmlFor="email">Email:</label>
         <input
           type="email"
@@ -31,7 +38,7 @@ const Signup = () => {
           placeholder="Enter email"
         />
 
-        <div className="flex items-center gap-2  py-2 px-4 bg-[#dfe0e2] ">
+        <div className="flex items-center gap-2  py-2 px-4 bg-[#dfe0e2] cursor-pointer ">
           <input
             type={toggle ? "text" : "password"}
             onChange={(e) => setPassword(e.target.value)}
@@ -50,8 +57,9 @@ const Signup = () => {
         >
           Login
         </button>
-        <span className="text-[10px] text-center">
-          The password must include uppercase letters, lowercase letters, and
+
+        <span className="text-[9px] text-center">
+          The password must include uppercase letters, lowercase, number, and
           special characters.
         </span>
       </form>
