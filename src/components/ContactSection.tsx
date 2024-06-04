@@ -17,7 +17,7 @@ const ContactSection = () => {
 
           <div className="flex flex-col gap-4 items-center">
             <BiPhone size={40} />
-            <span className="font-bold text-xl">Email</span>
+            <span className="font-bold text-xl">Phone</span>
             <p>Chat with our team in real-time for quick assistance.</p>
             <p>+1 (555) 000-0000</p>
           </div>
