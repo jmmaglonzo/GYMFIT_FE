@@ -13,7 +13,7 @@ const Hero = () => {
               Achieve Your Fitness Goals with Gym Fit
             </h1>
             <p>
-              Welcome to GymBuddy, the ultimate platform for tracking your
+              Welcome to GymFit, the ultimate platform for tracking your
               workouts and achieving your fitness goals. Sign up today and start
               your journey to a healthier you.
             </p>

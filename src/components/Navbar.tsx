@@ -40,7 +40,7 @@ const Navbar = () => {
           ref={menuRef}
         >
           <NavLink to="/" className="font-bold" onClick={closeMenu}>
-            GymBuddy
+            GYMFIT
           </NavLink>
           <BiMenuAltRight
             size={20}
